@@ -82,7 +82,6 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
             remarkPlugins={[remarkGfm, remarkMath]}
             components={{
               p({ children }) {
-                console.log('children is', children)
                 const cleanContent = message.content.replace(
                   /<<[^>]*>>|\[[^\]]*\]/g,
                   ''
@@ -152,7 +151,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                 {citations.map((citation, index) => (
                   <button
                     key={index}
-                    className="bg-blue-500 rounded-lg text-white p-2 text-xs"
+                    className="bg-blue-500 rounded-lg text-white p-2 text-xs mr-1"
                     onClick={async () => {
                       const response = await fetch(`/api/content/${citation}`)
                       const buffer = await response.arrayBuffer()
