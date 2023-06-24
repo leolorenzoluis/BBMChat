@@ -6,7 +6,7 @@ export const runtime = 'edge'
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
 })
-
+import { TableServiceClient, TableClient, AzureNamedKeyCredential, odata } from "@azure/data-tables";
 const openai = new OpenAIApi(configuration)
 
 export async function POST(req: Request) {

@@ -43,6 +43,16 @@ export function PromptForm({
         }
         setInput('')
         await onSubmit(input)
+
+        fetch('/api/audit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: input
+          })
+        })
       }}
       ref={formRef}
     >
