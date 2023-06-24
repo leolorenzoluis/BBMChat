@@ -15,7 +15,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 import { cn } from '@/lib/utils'
 import { CodeBlock } from '@/components/ui/codeblock'
 import { MemoizedReactMarkdown } from '@/components/markdown'
-import { IconOpenAI, IconUser } from '@/components/ui/icons'
+import { IconOpenAI, IconRobot, IconUser } from '@/components/ui/icons'
 import { ChatMessageActions } from '@/components/chat-message-actions'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { Dialog, DialogContent } from '@radix-ui/react-dialog'
@@ -74,7 +74,11 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
               : 'bg-primary text-primary-foreground'
           )}
         >
-          {message.role === 'user' ? <IconUser /> : <IconOpenAI />}
+          {message.role === 'user' ? (
+            <IconUser />
+          ) : (
+            <IconRobot style={{ transform: 'scale(1.7)' }} />
+          )}
         </div>
         <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
           <MemoizedReactMarkdown
@@ -93,7 +97,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                     {followUpQuestions.map((question, index) => (
                       <button
                         key={index}
-                        className="bg-pink-400 rounded-3xl text-white p-1 mr-1 text-xs text-left"
+                        className="bg-pink-400 hover:bg-pink-700 rounded-lg text-white p-1 mr-1 text-xs text-left"
                         onClick={async () => {
                           await append({
                             id: '',
@@ -151,7 +155,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                 {citations.map((citation, index) => (
                   <button
                     key={index}
-                    className="bg-blue-500 rounded-lg text-white p-2 text-xs mr-1"
+                    className="bg-blue-500 hover:bg-blue-700 rounded-lg text-white p-1 text-xs mr-1 text-left"
                     onClick={async () => {
                       const response = await fetch(`/api/content/${citation}`)
                       const buffer = await response.arrayBuffer()
