@@ -32,12 +32,6 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
   const [selectedCitation, setSelectedCitation] = useState<string | null>(null)
   const pdfWrapperRef = useRef<HTMLDivElement>(null)
 
-  useLayoutEffect(() => {
-    console.log(
-      'pdfWrapperRef',
-      pdfWrapperRef.current?.getBoundingClientRect()?.width!
-    )
-  }, [])
 
   const extractFollowUpQuestions = (str: string) => {
     const regex = /<<([^>]*)>>/g

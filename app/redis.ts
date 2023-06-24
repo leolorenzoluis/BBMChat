@@ -5,7 +5,6 @@ import * as redis from 'redis';
 
 const cacheHostName = process.env.REDISCACHE_HOSTNAME || '';
 const cachePassword = process.env.REDISCACHE_PASSWORD || '';
-console.log('hostname', cacheHostName)
 const redisClient = redis.createClient({
     // rediss for TLS
     url: `rediss://${cacheHostName}`,

@@ -18,13 +18,11 @@ export async function POST(req: Request) {
   };
 
   const body = JSON.stringify(data);
-  console.log('data', data);
 
   const url = 'https://finalprompt-fwsoq.eastus.inference.ml.azure.com/score';
   // Replace this with the primary/secondary key or AMLToken for the endpoint
 
   const api_key = process.env.API_KEY;
-  console.log('API KEY', api_key)
   if (!api_key) {
     throw new Error('A key should be provided to invoke the endpoint');
   }
@@ -46,10 +44,6 @@ export async function POST(req: Request) {
   const message = await fetchResponse.json();
   const botAnswer = message['chat_output'];
   // Create a readable stream from botAnswer
-
-  console.log('message', message)
-  // console.log('fetchResponse', await fetchResponse.json())
-  console.log('botAnswer', botAnswer)
   if (botAnswer === undefined) {
     return new Response('Sorry the answer is too long for me to handle. Try asking a shorter question.');
   }
@@ -57,7 +51,6 @@ export async function POST(req: Request) {
   let i = 0;
   const readableStream = new ReadableStream({
     start(controller) {
-      console.log('heyyy');
       let i = 0;
       const intervalId = setInterval(() => {
         if (i >= botAnswerChunks.length) {
