@@ -5,7 +5,13 @@ import { BlobServiceClient } from "@azure/storage-blob";
 
 export async function GET(req: Request,
   { params }: { params: { slug: string } }) {
-  const slug = params.slug
+  let slug = params.slug
+
+  // If slug contains Sona then replace it to upper case and leave the rest as is
+  const sona = 'Sona'
+  if (slug.includes(sona)) {
+    slug = slug.replace(sona, sona.toUpperCase())
+  }
 
   const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.AZURE_STORAGE_CONNECTION_STRING!)
   const containerClient = blobServiceClient.getContainerClient('content')
