@@ -74,6 +74,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
           )}
         </div>
         <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
+          <ChatMessageActions message={message} />
           <MemoizedReactMarkdown
             className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
             remarkPlugins={[remarkGfm, remarkMath]}
@@ -121,7 +122,6 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
           >
             {message.content}
           </MemoizedReactMarkdown>
-          <ChatMessageActions message={message} />
           {message.role === 'assistant' && citations.length > 0 && (
             <>
               <div className="">
@@ -142,8 +142,8 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
             </>
           )}
           {followUpQuestions.length > 0 && (
-            <span className="flex">
-              <span className="text-xs font-bold mr-1 flex-none self-center">
+            <span className="">
+              <span className="text-xs font-bold mr-1 flex-none">
                 Possible questions:
               </span>
               {followUpQuestions.map((question, index) => (

@@ -10,7 +10,7 @@ const exampleMessages = [
     message: `What is executive order 1?`
   },
   {
-    heading: "Summarize President. Marcos's speech.",
+    heading: "Summarize President BBM's speech.",
     message: 'What are the key highlights of his 2022 SONA?'
   },
   {
