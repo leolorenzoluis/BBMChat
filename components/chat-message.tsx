@@ -32,7 +32,6 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
   const [selectedCitation, setSelectedCitation] = useState<string | null>(null)
   const pdfWrapperRef = useRef<HTMLDivElement>(null)
 
-
   const extractFollowUpQuestions = (str: string) => {
     const regex = /<<([^>]*)>>/g
     const matches = str.match(regex)
@@ -91,7 +90,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                     {followUpQuestions.map((question, index) => (
                       <button
                         key={index}
-                        className="bg-pink-400 hover:bg-pink-700 rounded-lg text-white p-1 mr-1 text-xs text-left"
+                        className="bg-orange-400 hover:bg-orange-700 rounded-lg text-white p-1 mr-1 text-xs text-left"
                         onClick={async () => {
                           await append({
                             id: '',
@@ -149,7 +148,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                 {citations.map((citation, index) => (
                   <button
                     key={index}
-                    className="bg-blue-500 hover:bg-blue-700 rounded-lg text-white p-1 text-xs mr-1 text-left"
+                    className="bg-red-500 hover:bg-red-700 rounded-lg text-white p-1 text-xs mr-1 text-left"
                     onClick={async () => {
                       const response = await fetch(`/api/content/${citation}`)
                       const buffer = await response.arrayBuffer()

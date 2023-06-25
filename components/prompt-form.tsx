@@ -61,6 +61,7 @@ export function PromptForm({
           <TooltipTrigger asChild>
             <Link
               href="/"
+              onClick={() => window.location.reload()}
               className={cn(
                 buttonVariants({ size: 'sm', variant: 'outline' }),
                 'absolute left-0 top-4 h-8 w-8 rounded-full bg-background p-0 sm:left-4'

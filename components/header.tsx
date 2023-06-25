@@ -50,7 +50,7 @@ export async function Header() {
               'px-2 text-center text-xs leading-normal text-muted-foreground'
             )}
           >
-            BBM chatbot built with ❤️ 🤖 by{' '}
+            BBM chatbot built with 🤖 ❤️ by{' '}
             <ExternalLink href="https://www.leoluis.xyz">
               Leo Luis.
             </ExternalLink>

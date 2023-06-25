@@ -12,7 +12,7 @@ export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
       )}
       {...props}
     >
-      BBM chatbot built with ❤️ 🤖 by{' '}
+      BBM chatbot built with 🤖 ❤️ by{' '}
       <ExternalLink href="mailto:contact@leoluis.xyz">Leo Luis.</ExternalLink>
     </p>
   )
