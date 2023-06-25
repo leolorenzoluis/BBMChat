@@ -6,36 +6,37 @@ import { IconArrowRight, SquigglyLines } from '@/components/ui/icons'
 
 const exampleMessages = [
   {
-    heading: 'Know more about executive orders.',
-    message: `What are the new rates in executive order 10 in table format?`
+    heading: 'Exploring Executive Orders: A Deeper Understanding',
+    message: `What are sections of executive order 10?`
   },
   {
-    heading: "Summarize President BBM's speech.",
+    heading:
+      "Restructuring President BBM's Speech: Key Takeaways and Highlights",
     message: 'What are the key highlights of his 2022 SONA?'
   },
   {
     heading: 'Are OFWs affected by the new executive order?',
-    message: `Any executive orders about OFW?`
+    message: `Are there any executive orders specifically related to overseas Filipino workers (OFWs)?`
   },
   {
-    heading: 'Executive orders about our culture.',
-    message: `What executive orders impacts our culture?`
+    heading: 'Executive Orders Shaping Our Cultural Landscape',
+    message: `Which executive orders have had an impact on our culture?`
   },
   {
-    heading: 'Know if an agency is affected by the new executive order.',
-    message: `Is DENR affected by any new executive orders?`
+    heading: 'Check if an agency is affected by any executive orders',
+    message: `Are there any recent executive orders that have affected the Department of Environment and Natural Resources (DENR)?`
   },
   {
     heading: 'Economy and tax rates',
-    message: `Any executive orders that affects the economy and tax rates?`
+    message: `Are there any executive orders that have had an impact on the economy and tax rates?`
   },
   {
     heading: 'What is build build build program?',
     message: `What is build build build program?`
   },
   {
-    heading: 'Check if a topic of interest affects you.',
-    message: `Are cockfights impacted?`
+    heading: 'Verify Impact of Topic of Interest',
+    message: `Have cockfights been affected by any changes or regulations?`
   },
   {
     heading: 'Jejemon or Filipino language is supported!',

@@ -2,6 +2,13 @@ import { StreamingTextResponse } from 'ai'
 import { Configuration, OpenAIApi } from 'openai-edge'
 
 export const runtime = 'edge'
+function splitString(str: string, chunkSize: number): string[] {
+  const chunks = [];
+  for (let i = 0; i < str.length; i += chunkSize) {
+    chunks.push(str.slice(i, i + chunkSize));
+  }
+  return chunks;
+}
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
@@ -41,13 +48,17 @@ export async function POST(req: Request) {
   };
 
   const fetchResponse = await fetch(url, options);
+  if (!fetchResponse.ok) {
+    const errorMessage = await fetchResponse.text();
+    throw new Error(errorMessage);
+  }
   const message = await fetchResponse.json();
   const botAnswer = message['chat_output'];
   // Create a readable stream from botAnswer
   if (botAnswer === undefined) {
     return new Response('Sorry the answer is too long for me to handle. Try asking a shorter question.');
   }
-  const botAnswerChunks = botAnswer.match(/.{1,10}/g) || [];
+  const botAnswerChunks = splitString(botAnswer, 10);
   let i = 0;
   const readableStream = new ReadableStream({
     start(controller) {
@@ -60,12 +71,13 @@ export async function POST(req: Request) {
         }
 
         const chunk = botAnswerChunks[i];
+        console.log('chunk', chunk)
         const encoder = new TextEncoder();
         const chunkAsUint8Array = encoder.encode(chunk);
 
         controller.enqueue(chunkAsUint8Array);
         i++;
-      }, 10);
+      }, 5);
     },
   });
   return new StreamingTextResponse(readableStream);

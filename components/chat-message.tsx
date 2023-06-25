@@ -52,6 +52,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
 
   const followUpQuestions = extractFollowUpQuestions(message.content)
   const citations = extractCitations(message.content)
+  const cleanMessage = message.content.replace(/<<[^>]*>>|\[[^\]]*\]/g, '')
 
   return (
     <div ref={pdfWrapperRef}>
@@ -77,17 +78,31 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
           <MemoizedReactMarkdown
             className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
             remarkPlugins={[remarkGfm, remarkMath]}
+            children={cleanMessage}
             components={{
               p({ children }) {
-                const cleanContent = message.content.replace(
-                  /<<[^>]*>>|\[[^\]]*\]/g,
-                  ''
-                )
+                // console.log('children', children)
+                // children = children.map(child => {
+                //   if (typeof child === 'string') {
+                //     return child.replace(/<<[^>]*>>|\[[^\]]*\]/g, '')
+                //   }
+                //   return child
+                // })
                 return (
                   <div className="mb-2 last:mb-0">
-                    {' '}
-                    {cleanContent}
-                    <ChatMessageActions message={message} />
+                    {children}
+                    {/* {children.map((child, index) => {
+                      console.log('child is string', typeof child === 'string')
+                      console.log('child', child)
+                      if (typeof child === 'string') {
+                        const cleanContent = message.content.replace(
+                          /<<[^>]*>>|\[[^\]]*\]/g,
+                          ''
+                        )
+                        return <span key={Math.random()}>{cleanContent}</span>
+                      }
+                    })} */}
+                    {/* <ChatMessageActions message={message} /> */}
                   </div>
                 )
               },
@@ -124,9 +139,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                 )
               }
             }}
-          >
-            {message.content}
-          </MemoizedReactMarkdown>
+          ></MemoizedReactMarkdown>
           {message.role === 'assistant' && citations.length > 0 && (
             <>
               <div className="">
