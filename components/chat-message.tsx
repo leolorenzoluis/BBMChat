@@ -74,7 +74,6 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
           )}
         </div>
         <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
-          <ChatMessageActions message={message} />
           <MemoizedReactMarkdown
             className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
             remarkPlugins={[remarkGfm, remarkMath]}
@@ -84,7 +83,13 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                   /<<[^>]*>>|\[[^\]]*\]/g,
                   ''
                 )
-                return <div className="mb-2 last:mb-0"> {cleanContent}</div>
+                return (
+                  <div className="mb-2 last:mb-0">
+                    {' '}
+                    {cleanContent}
+                    <ChatMessageActions message={message} />
+                  </div>
+                )
               },
               code({ node, inline, className, children, ...props }) {
                 if (children.length) {
