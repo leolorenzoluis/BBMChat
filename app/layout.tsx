@@ -11,10 +11,12 @@ import { Header } from '@/components/header'
 
 export const metadata: Metadata = {
   title: {
-    default: 'BBM Chatbot',
+    default:
+      'BBM Chatbot - Ask questions about the President BBM\'s SONA and up to date executive orders."',
     template: `%s - BBM Chatbot`
   },
-  description: 'BBM Chatbot',
+  description:
+    "Ask questions about the President BBM's SONA and up to date executive orders.",
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' }
