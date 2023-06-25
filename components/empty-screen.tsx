@@ -3,6 +3,8 @@ import { UseChatHelpers } from 'ai/react'
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from '@/components/external-link'
 import { IconArrowRight, SquigglyLines } from '@/components/ui/icons'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const exampleMessages = [
   {
@@ -56,10 +58,25 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
           </span>
         </h1>
 
-        <p className="leading-normal text-muted-foreground">
-          You can start a conversation related to SONA 2022 or Executive Orders.
-          As of today, there are 31 executive orders you can search around. Try
-          the following examples:
+        <Image
+          src="/notext.png"
+          alt="A chatbot"
+          width={600}
+          height={150}
+        ></Image>
+        <p className="leading-normal text-muted-foreground mt-1">
+          Explore the highlights on{' '}
+          <span className="text-bold text-red-500">SONA 2022</span> or delve
+          into discussions about Executive Orders. Currently, there are{' '}
+          <span className="text-bold text-red-500">31 executive orders</span>{' '}
+          available for you to explore. Before proceeding, I kindly request you
+          to review the provided
+          <Link href="/disclaimer" className="text-blue-500">
+            {' '}
+            disclaimer and privacy policy
+          </Link>
+          {'. '}
+          Feel free to try the following examples for a seamless experience:
         </p>
         <div className="mt-4 flex flex-col items-start space-y-2">
           {exampleMessages.map((message, index) => (
