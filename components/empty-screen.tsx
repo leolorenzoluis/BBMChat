@@ -7,7 +7,7 @@ import { IconArrowRight, SquigglyLines } from '@/components/ui/icons'
 const exampleMessages = [
   {
     heading: 'Know more about executive orders.',
-    message: `What is executive order 1?`
+    message: `What are the new rates in executive order 10 in table format?`
   },
   {
     heading: "Summarize President BBM's speech.",
@@ -23,7 +23,7 @@ const exampleMessages = [
   },
   {
     heading: 'Know if an agency is affected by the new executive order.',
-    message: `Is DENR affected by the new executive order?`
+    message: `Is DENR affected by any new executive orders?`
   },
   {
     heading: 'Economy and tax rates',
