@@ -12,7 +12,8 @@ import {
   IconNextChat,
   IconRobot,
   IconSeparator,
-  IconVercel
+  IconVercel,
+  SquigglyLines
 } from '@/components/ui/icons'
 import { SidebarFooter } from '@/components/sidebar-footer'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -50,10 +51,16 @@ export async function Header() {
               'px-2 text-center text-xs leading-normal text-muted-foreground'
             )}
           >
-            BBM chatbot built with 🤖 ❤️ by{' '}
-            <ExternalLink href="https://www.leoluis.xyz">
-              Leo Luis.
-            </ExternalLink>
+            <span className="relative whitespace-nowrap text-red-600 ">
+              <SquigglyLines />
+              <span className="relative text-bold">BBM Chatbot</span>
+            </span>{' '}
+            built with 🤖 ❤️ by{' '}
+            <span className="relative whitespace-nowrap text-blue-600 text-bold">
+              <ExternalLink href="https://www.leoluis.xyz">
+                Leo Luis.
+              </ExternalLink>
+            </span>
           </p>
         </div>
       </div>

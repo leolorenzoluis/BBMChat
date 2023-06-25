@@ -2,6 +2,7 @@ import React from 'react'
 
 import { cn } from '@/lib/utils'
 import { ExternalLink } from '@/components/external-link'
+import { SquigglyLines } from './ui/icons'
 
 export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
   return (
@@ -12,8 +13,14 @@ export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
       )}
       {...props}
     >
-      BBM chatbot built with 🤖 ❤️ by{' '}
-      <ExternalLink href="mailto:contact@leoluis.xyz">Leo Luis.</ExternalLink>
+      <span className="relative whitespace-nowrap text-red-600 ">
+        <SquigglyLines />
+        <span className="relative text-bold">BBM Chatbot</span>
+      </span>{' '}
+      built with 🤖 ❤️ by{' '}
+      <span className="relative whitespace-nowrap text-blue-600 text-bold">
+        <ExternalLink href="mailto:contact@leoluis.xyz">Leo Luis.</ExternalLink>
+      </span>
     </p>
   )
 }

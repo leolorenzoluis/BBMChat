@@ -78,7 +78,6 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
           <MemoizedReactMarkdown
             className="prose break-words dark:prose-invert prose-p:leading-relaxed prose-pre:p-0"
             remarkPlugins={[remarkGfm, remarkMath]}
-            children={cleanMessage}
             components={{
               p({ children }) {
                 // console.log('children', children)
@@ -139,6 +138,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                 )
               }
             }}
+            {...{ children: cleanMessage }}
           ></MemoizedReactMarkdown>
           {message.role === 'assistant' && citations.length > 0 && (
             <>
