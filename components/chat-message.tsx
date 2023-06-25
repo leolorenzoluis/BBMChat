@@ -83,27 +83,7 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                   /<<[^>]*>>|\[[^\]]*\]/g,
                   ''
                 )
-                return (
-                  <div className="mb-2 last:mb-0">
-                    {' '}
-                    {cleanContent}
-                    {followUpQuestions.map((question, index) => (
-                      <button
-                        key={index}
-                        className="bg-orange-400 hover:bg-orange-700 rounded-lg text-white p-1 mr-1 text-xs text-left"
-                        onClick={async () => {
-                          await append({
-                            id: '',
-                            role: 'user',
-                            content: question
-                          })
-                        }}
-                      >
-                        {question}
-                      </button>
-                    ))}
-                  </div>
-                )
+                return <div className="mb-2 last:mb-0"> {cleanContent}</div>
               },
               code({ node, inline, className, children, ...props }) {
                 if (children.length) {
@@ -141,20 +121,16 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
           >
             {message.content}
           </MemoizedReactMarkdown>
+          <ChatMessageActions message={message} />
           {message.role === 'assistant' && citations.length > 0 && (
             <>
-              <div className="flex flex-row items-center">
-                <h4 className="text-xs font-bold mr-1">Citations:</h4>
+              <div className="">
+                <span className="text-xs font-bold mr-1">Citations:</span>
                 {citations.map((citation, index) => (
                   <button
                     key={index}
-                    className="bg-red-500 hover:bg-red-700 rounded-lg text-white p-1 text-xs mr-1 text-left"
+                    className="bg-red-500 hover:bg-red-700  text-white p-1 text-xs mr-1 text-left"
                     onClick={async () => {
-                      const response = await fetch(`/api/content/${citation}`)
-                      const buffer = await response.arrayBuffer()
-                      const decoder = new TextDecoder('utf-8')
-                      const text = decoder.decode(buffer)
-
                       setSelectedCitation(citation)
                       setIsDialogOpen(true)
                     }}
@@ -163,8 +139,29 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
                   </button>
                 ))}
               </div>
-              <ChatMessageActions message={message} />
             </>
+          )}
+          {followUpQuestions.length > 0 && (
+            <span className="flex">
+              <span className="text-xs font-bold mr-1 flex-none self-center">
+                Possible questions:
+              </span>
+              {followUpQuestions.map((question, index) => (
+                <button
+                  key={index}
+                  className="bg-orange-400 hover:bg-orange-700 rounded-2xl text-white p-1 mr-1 text-xs text-left"
+                  onClick={async () => {
+                    await append({
+                      id: '',
+                      role: 'user',
+                      content: question
+                    })
+                  }}
+                >
+                  {question}
+                </button>
+              ))}
+            </span>
           )}
         </div>
       </div>

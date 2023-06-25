@@ -2,7 +2,7 @@ import { UseChatHelpers } from 'ai/react'
 
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from '@/components/external-link'
-import { IconArrowRight } from '@/components/ui/icons'
+import { IconArrowRight, SquigglyLines } from '@/components/ui/icons'
 
 const exampleMessages = [
   {
@@ -11,19 +11,49 @@ const exampleMessages = [
   },
   {
     heading: "Summarize President. Marcos's speech.",
-    message: 'Summarize the SONA speech of President Marcos.'
+    message: 'What are the key highlights of his 2022 SONA?'
   },
   {
-    heading: 'What are the new laws implemented?',
-    message: `Are there any mentions of cockfights?`
+    heading: 'Are OFWs affected by the new executive order?',
+    message: `Any executive orders about OFW?`
+  },
+  {
+    heading: 'Executive orders about our culture.',
+    message: `What executive orders impacts our culture?`
+  },
+  {
+    heading: 'Know if an agency is affected by the new executive order.',
+    message: `Is DENR affected by the new executive order?`
+  },
+  {
+    heading: 'Economy and tax rates',
+    message: `Any executive orders that affects the economy and tax rates?`
+  },
+  {
+    heading: 'What is build build build program?',
+    message: `What is build build build program?`
+  },
+  {
+    heading: 'Check if a topic of interest affects you.',
+    message: `Are cockfights impacted?`
+  },
+  {
+    heading: 'Jejemon or Filipino language is supported!',
+    message: `4n0 p0whz un6 c0ckf!ghts s4 3x3cutiv3 0rd3rs?`
   }
 ]
 
 export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
   return (
     <div className="mx-auto max-w-2xl px-4">
-      <div className="rounded-lg border bg-background p-8">
-        <h1 className="mb-2 text-lg font-semibold">Welcome to BBM Chatbot!</h1>
+      <div className="rounded-lg border bg-background p-8 ">
+        <h1 className="mb-2 font-semibold text-4xl ">
+          Introducing{' '}
+          <span className="relative whitespace-nowrap text-red-600 ">
+            <SquigglyLines />
+            <span className="relative">BBM Chatbot</span>
+          </span>
+        </h1>
 
         <p className="leading-normal text-muted-foreground">
           You can start a conversation related to SONA 2022 or Executive Orders.
