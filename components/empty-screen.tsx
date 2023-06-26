@@ -59,7 +59,7 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
         </h1>
 
         <Image
-          src="/notext.png"
+          src="/mascot.png"
           alt="A chatbot"
           width={600}
           height={150}

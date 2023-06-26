@@ -40,8 +40,8 @@ export async function Header() {
           </Sidebar>
         ) : (
           <Link href="/" target="_blank" rel="nofollow">
-            <IconRobot className="w-6 h-6 mr-2 dark:hidden" />
-            <IconRobot className="hidden w-6 h-6 mr-2 dark:block" />
+            <img src="/mascot.png" className="w-6 h-6 mr-2 dark:hidden" />
+            <img src="/mascot.png" className="hidden w-6 h-6 mr-2 dark:block" />
           </Link>
         )}
         <div className="flex items-center">

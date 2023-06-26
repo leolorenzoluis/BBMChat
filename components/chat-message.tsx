@@ -71,7 +71,8 @@ export function ChatMessage({ message, append, ...props }: ChatMessageProps) {
           {message.role === 'user' ? (
             <IconUser />
           ) : (
-            <IconRobot style={{ transform: 'scale(1.7)' }} />
+            <img src="/mascot.png" className="w-7 h-7" />
+            // <IconRobot style={{ transform: 'scale(1.7)' }} />
           )}
         </div>
         <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
