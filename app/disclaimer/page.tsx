@@ -41,7 +41,7 @@ const Disclaimer = () => {
         acknowledge and agree to these disclaimers and the terms of our privacy
         policy. If you have any concerns or questions about your privacy or the
         usage of BBMChat, please feel free to{' '}
-        <ExternalLink href="mailto:bbm-chat@outlook.com">
+        <ExternalLink href="">
           contact me
         </ExternalLink>
       </p>
