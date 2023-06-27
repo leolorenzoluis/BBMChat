@@ -40,8 +40,16 @@ export async function Header() {
           </Sidebar>
         ) : (
           <Link href="/" target="_blank" rel="nofollow">
-            <img src="/mascot.png" className="w-6 h-6 mr-2 dark:hidden" />
-            <img src="/mascot.png" className="hidden w-6 h-6 mr-2 dark:block" />
+            <img
+              src="/mascot.png"
+              className="w-6 h-6 mr-2 dark:hidden"
+              alt="Mascot"
+            />
+            <img
+              src="/mascot.png"
+              className="hidden w-6 h-6 mr-2 dark:block"
+              alt="Mascot"
+            />
           </Link>
         )}
         <div className="flex items-center">
@@ -57,9 +65,7 @@ export async function Header() {
             </span>{' '}
             built with 🤖 ❤️ by{' '}
             <span className="relative whitespace-nowrap text-blue-600 text-bold">
-              <ExternalLink href="">
-                Leo Luis.
-              </ExternalLink>
+              <ExternalLink href="">Leo Luis.</ExternalLink>
             </span>
           </p>
         </div>
