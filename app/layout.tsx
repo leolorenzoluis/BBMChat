@@ -11,8 +11,7 @@ import { Header } from '@/components/header'
 
 export const metadata: Metadata = {
   title: {
-    default:
-      'BBM Chatbot - Ask questions about the President BBM\'s SONA and up to date executive orders."',
+    default: 'BBM Chatbot - A Filipino GPT',
     template: `%s - BBM Chatbot`
   },
   description:
