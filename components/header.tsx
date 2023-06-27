@@ -57,7 +57,7 @@ export async function Header() {
             </span>{' '}
             built with 🤖 ❤️ by{' '}
             <span className="relative whitespace-nowrap text-blue-600 text-bold">
-              <ExternalLink href="https://www.leoluis.xyz">
+              <ExternalLink href="">
                 Leo Luis.
               </ExternalLink>
             </span>
