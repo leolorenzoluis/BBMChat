@@ -19,7 +19,7 @@ export function FooterText({ className, ...props }: React.ComponentProps<'p'>) {
       </span>{' '}
       built with 🤖 ❤️ by{' '}
       <span className="relative whitespace-nowrap text-blue-600 text-bold">
-        <ExternalLink href="">Leo Luis.</ExternalLink>
+        <ExternalLink href="https://twitter.com/leolorenzoluis">Leo Luis.</ExternalLink>
       </span>
     </p>
   )
